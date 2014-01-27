@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+		<title>Yata - Yet Another Todo App</title>
+
+		<link href="assets/css/ionic.min.css" rel="stylesheet" />
+    	<link href="assets/css/style.css" rel="stylesheet" />
+	</head>
+
+	<body ng-app="yataApp" animation="slide-left-right-ios7" ng-controller="NavigationController">
+		<side-menus>
+			<pane side-menu-content>
+				<header-bar left-buttons="leftButtons" type="bar-positive" title="headerTitle"></header-bar>
+				<ng-view></ng-view>
+			</pane>
+			
+			<side-menu side="left">
+				<header-bar title="menuTitle"></header-bar>
+				<content has-header="true">
+					<list>
+						<a href="#" class="item item-icon-left">
+							<i class="icon ion-android-inbox"></i>
+							Inbox
+							<span class="badge badge-assertive">2</span>
+						</a>
+						<div class="item item-divider">
+							Time
+						</div>
+						<a href="#" class="item item-icon-left">
+							<i class="icon ion-alert-circled"></i>
+							Too late
+						</a>
+						<a href="#" class="item item-icon-left">
+							<i class="icon ion-star"></i>
+							Today
+						</a>
+						<a href="#" class="item item-icon-left">
+							<i class="icon ion-calendar"></i>
+							Soon
+						</a>
+						<div class="item item-divider">
+							Projects
+						</div>
+						<item href="#/project/{{project.id}}" item-type="item item-link"
+							ng-repeat="project in projects">
+							{{project.title}}
+						</item>
+					</list>
+				</content>
+			</side-menu>
+		</side-menus>
+    
+		<script type="text/javascript" src="libs/ionic-0.9.21-alpha/ionic.min.js"></script>
+		<script type="text/javascript" src="libs/angular-1.2.10/angular.min.js"></script>
+		<script type="text/javascript" src="libs/angular-1.2.10/angular-animate.min.js"></script>
+		<script type="text/javascript" src="libs/angular-1.2.10/angular-route.min.js"></script>
+		<script type="text/javascript" src="libs/angular-1.2.10/angular-touch.min.js"></script>
+		<script type="text/javascript" src="libs/angular-1.2.10/angular-sanitize.min.js"></script>
+		<script type="text/javascript" src="libs/ionic-0.9.21-alpha/angular-ui-router.min.js"></script>
+		<script type="text/javascript" src="libs/ionic-0.9.21-alpha/ionic-angular.min.js"></script>
+		<script type="text/javascript" src="libs/underscore-1.5.2/underscore-min.js"></script>
+		<script type="text/javascript" src="app/app.js"></script>
+		<script type="text/javascript" src="app/services/services.js"></script>
+		<script type="text/javascript" src="app/controllers/controllers.js"></script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<view title="title">
+	<div class="bar bar-subheader bar-stable">
+		<h2 class="title">{{title}}</h2>
+	</div>
+	<content has-header="true" has-subheader="true" padding="true">
+		<ul>
+			<li ng-repeat="task in tasks" class="item item-checkbox">
+				<label class="checkbox">
+					<input type="checkbox" ng-checked="task.completed" />
+				</label>
+				{{task.title}}
+			</item>
+		</list>
+	</content>
+</view>
