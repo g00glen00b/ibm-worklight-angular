@@ -1,0 +1,27 @@
+<div class="modal">
+	<header class="bar bar-header bar-positive">
+		<h1 class="title">{{taskModel.labels.title}}</h1>
+		<button class="button icon-left ion-close" ng-click="closeTaskModal()">Cancel</button>
+	</header>
+	<content has-header="true">
+		<form ng-submit="saveTaskModal()">
+			<div class="padding">
+				<div class="list">
+					<label class="item item-input">
+	    				<input type="text" placeholder="Task description" ng-model="taskModel.task.title" />
+					</label>
+					<label class="item item-input">
+						<input type="date" ng-model="taskModel.task.due" />
+					</label>
+					<label class="item item-input">
+	    				<select ng-model="taskModel.task.project" ng-options="project.title for project in tasks.projects">
+	    					<option value="" selected>Inbox</option>
+	    				</select>
+					</label>
+					<button class="button button-block button-positive" type="submit">{{taskModel.labels.btn}}</button>
+				</div>
+			</div>
+		</form>
+		<pre>{{taskModel | json}}</pre>
+	</content>
+</div>

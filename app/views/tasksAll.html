@@ -3,11 +3,17 @@
 		<h2 class="title">{{title}}</h2>
 	</div>
 	<content has-header="true" has-subheader="true" padding="true">
-		<list ng-if="tasks !== undefined && tasks.length > 0">
-			<checkbox ng-repeat="task in tasks" ng-class="{'item-highlight': (focus.task.id === task.id)}"
+		<list>
+			<checkbox ng-repeat="task in tasks.inbox | RangeFilter:range" ng-class="{'item-highlight': (focus.task.id === task.id)}"
 				 ng-model="task.completed" hm-hold="focusTask(task)" hm-tap="unfocusTask(task)">
 				{{task.title}}
 			</checkbox>
+			<div ng-repeat="project in tasks.projects">
+				<checkbox ng-repeat="task in project.tasks | RangeFilter:range" ng-class="{'item-highlight': (focus.task.id === task.id)}"
+					ng-model="task.completed" hm-hold="focusTask(task)" hm-tap="unfocusTask(task)">
+					{{task.title}}
+				</checkbox>
+			</div>
 		</list>
 		<div class="list card" ng-if="tasks === null || tasks === undefined || tasks.length === 0">
 			<div class="item item-icon-left assertive">

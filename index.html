@@ -5,64 +5,94 @@
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
 		<title>Yata - Yet Another Todo App</title>
 
-		<link href="assets/css/ionic.min.css" rel="stylesheet" />
+		<link href="../libs/ionic/dist/css/ionic.min.css" rel="stylesheet" />
     	<link href="assets/css/style.css" rel="stylesheet" />
 	</head>
 
-	<body ng-app="yataApp" animation="slide-left-right-ios7" ng-controller="NavigationController">
+	<body ng-app="yataApp" animation="slide-left-right-ios7" ng-controller="BaseController">
 		<side-menus>
 			<pane side-menu-content>
-				<header-bar left-buttons="leftButtons" type="bar-positive" title="headerTitle"></header-bar>
+				<header-bar left-buttons="headerBtns.left" type="bar-positive" title="titles.headerTitle"
+					right-buttons="headerBtns.right">
+				</header-bar>
 				<ng-view></ng-view>
 			</pane>
 			
 			<side-menu side="left">
-				<header-bar title="menuTitle"></header-bar>
+				<header-bar title="titles.menuTitle"></header-bar>
 				<content has-header="true">
 					<list>
-						<a href="#" class="item item-icon-left">
+						<a href="#/inbox" class="item item-icon-left">
 							<i class="icon ion-android-inbox"></i>
 							Inbox
-							<span class="badge badge-assertive">2</span>
+							<span class="badge badge-positive" ng-if="(tasks.inbox | TaskCountFilter) > 0"
+								ng-model="tasks.inbox">
+								{{tasks.inbox | TaskCountFilter}}
+							</span>
 						</a>
 						<div class="item item-divider">
 							Time
 						</div>
-						<a href="#" class="item item-icon-left">
+						<a href="#/past" class="item item-icon-left">
 							<i class="icon ion-alert-circled"></i>
 							Too late
+							<span class="badge badge-positive"
+								ng-if="(tasks | TaskCountRangeFilter:ranges.past) > 0">
+								{{tasks | TaskCountRangeFilter:ranges.past}}
+							</span>
 						</a>
-						<a href="#" class="item item-icon-left">
+						<a href="#/today" class="item item-icon-left">
 							<i class="icon ion-star"></i>
 							Today
+							<span class="badge badge-positive"
+								ng-if="(tasks | TaskCountRangeFilter:ranges.today) > 0">
+								{{tasks | TaskCountRangeFilter:ranges.today}}
+							</span>
 						</a>
-						<a href="#" class="item item-icon-left">
+						<a href="#/soon" class="item item-icon-left">
 							<i class="icon ion-calendar"></i>
 							Soon
+							<span class="badge badge-positive"
+								ng-if="(tasks | TaskCountRangeFilter:ranges.soon) > 0">
+								{{tasks | TaskCountRangeFilter:ranges.soon}}
+							</span>
 						</a>
 						<div class="item item-divider">
 							Projects
 						</div>
-						<item href="#/project/{{project.id}}" item-type="item item-link"
-							ng-repeat="project in projects">
+						<a href="#/project/{{project.id}}" class="item" ng-repeat="project in tasks.projects">
 							{{project.title}}
-						</item>
+							<span class="badge badge-positive" ng-if="(project | OpenTaskCountFilter) > 0">
+								{{project | OpenTaskCountFilter}}
+							</span>
+						</a>
+						<div class="item item-divider"></div>
+						<a href="#/settings" class="item item-icon-left positive">
+							<i class="icon ion-gear-a"></i> Settings
+						</a>
 					</list>
 				</content>
 			</side-menu>
 		</side-menus>
     
-		<script type="text/javascript" src="libs/ionic-0.9.21-alpha/ionic.min.js"></script>
-		<script type="text/javascript" src="libs/angular-1.2.10/angular.min.js"></script>
-		<script type="text/javascript" src="libs/angular-1.2.10/angular-animate.min.js"></script>
-		<script type="text/javascript" src="libs/angular-1.2.10/angular-route.min.js"></script>
-		<script type="text/javascript" src="libs/angular-1.2.10/angular-touch.min.js"></script>
-		<script type="text/javascript" src="libs/angular-1.2.10/angular-sanitize.min.js"></script>
-		<script type="text/javascript" src="libs/ionic-0.9.21-alpha/angular-ui-router.min.js"></script>
-		<script type="text/javascript" src="libs/ionic-0.9.21-alpha/ionic-angular.min.js"></script>
-		<script type="text/javascript" src="libs/underscore-1.5.2/underscore-min.js"></script>
+    	<!-- Libraries -->
+		<script type="text/javascript" src="../libs/ionic/dist/js/ionic.min.js"></script>
+		<script type="text/javascript" src="../libs/angular/angular.min.js"></script>
+		<script type="text/javascript" src="../libs/angular-animate/angular-animate.min.js"></script>
+		<script type="text/javascript" src="../libs/angular-route/angular-route.min.js"></script>
+		<script type="text/javascript" src="../libs/angular-resource/angular-resource.min.js"></script>
+		<script type="text/javascript" src="../libs/angular-touch/angular-touch.min.js"></script>
+		<script type="text/javascript" src="../libs/angular-sanitize/angular-sanitize.min.js"></script>
+		<script type="text/javascript" src="../libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+		<script type="text/javascript" src="../libs/angular-gestures/gestures.min.js"></script>
+		<script type="text/javascript" src="../libs/ionic/dist/js/ionic-angular.min.js"></script>
+		<script type="text/javascript" src="../libs/underscore/underscore-min.js"></script>
+		<script type="text/javascript" src="../libs/momentjs/min/moment.min.js"></script>
+		
+		<!-- Application -->
 		<script type="text/javascript" src="app/app.js"></script>
 		<script type="text/javascript" src="app/services/services.js"></script>
 		<script type="text/javascript" src="app/controllers/controllers.js"></script>
+		<script type="text/javascript" src="app/filters/filters.js"></script>
   </body>
 </html>

@@ -1,0 +1,26 @@
+.bar.bar-footer .bar-inner {
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+}
+
+.bar.bar-footer .bar-inner .button {
+	margin: 0 2em;
+}
+
+.item-input.item-input-inline {
+	width: 100%
+}
+
+.item.item-highlight {
+	-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	outline: 0;
+	border-color: rgba(82, 168, 236, .8);
+	box-shadow: 0 0 8px rgba(82, 168, 236, .8);
+	z-index: 3;
+}
+
+.mac-menu.visible, .ui-datepicker {
+	z-index: 10;
+}

@@ -1,0 +1,18 @@
+<div class="modal">
+	<header class="bar bar-header bar-positive">
+		<h1 class="title">Edit project</h1>
+		<button class="button icon-left ion-close" ng-click="closeModal()">Cancel</button>
+	</header>
+	<content has-header="true">
+		<form ng-submit="saveModal()">
+			<div class="padding">
+				<div class="list">
+					<label class="item item-input">
+	    				<input type="text" placeholder="Project name" ng-model="model.projectName" />
+					</label>
+					<button class="button button-block button-positive" type="submit">Edit</button>
+				</div>
+			</div>
+		</form>
+	</content>
+</div>

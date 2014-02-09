@@ -1,0 +1,20 @@
+<view title="title">
+	<content has-header="true" padding="true">
+		<div class="item item-divider">
+			Projects
+		</div>
+		<list>
+			<item ng-repeat="project in projects" can-swipe="true" item="project" option-buttons="projectBtns">
+    			{{project.title}}
+			</item>
+			<form ng-submit="addProject()">
+				<div class="item item-input-inset">
+					<label class="item-input item-input-inline">
+		  				<input type="text" placeholder="Name of the project" ng-model="newProject.name" />
+					</label>
+					<button class="button button-light icon ion-plus" type="submit"></button>
+				</div>
+			</form>
+		</list>
+	</content>
+</view>
