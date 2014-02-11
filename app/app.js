@@ -38,4 +38,7 @@ angular.module('yataApp', [
 		redirectTo: '/inbox'
 	});
 }]);
-	
+
+angular.module('yataApp.controllers', []);
+angular.module('yataApp.services', []);
+angular.module('yataApp.filters', []);

@@ -8,11 +8,11 @@
     "angular-mocks": "latest",
     "angular-resource": "latest",
     "angular-route": "latest",
+    "angular-ui-router": "0.2.8-bowratic-tedium",
     "angular-gestures": "latest",
+    "angular-sanitize": "latest",
+    "ionic": "0.9.21-alpha",
     "underscore": "latest",
     "momentjs": "latest"
-  },
-  "resolutions": {
-    "angular": "1.2.12"
   }
 }

@@ -38,9 +38,81 @@ module.exports = function (grunt) {
             continuous: {
                 singleRun: false
             }
-        }
+		},
+		clean: {
+            build: [ 'dist' ]
+		},
+		cssmin: {
+			build_app: {
+				files: {
+					'dist/assets/css/style.min.css': [ 'assets/**/*.css' ]
+				}
+			}
+		},
+		htmlmin: {
+			build: {
+				options: {
+					collapseBooleanAttributes: true,
+					collapseWhitespace: true,
+					removeAttributeQuotes: true,
+					removeCommentsFromCDATA: true,
+					removeEmptyAttributes: true,
+					removeOptionalTags: true,
+					removeRedundantAttributes: true,
+					useShortDoctype: true
+				},
+				files: [{
+					expand: true,
+					src: '*.html',
+					dest: 'dist'
+				}]
+			}
+		},
+		copy: {
+			build: {
+				files: [{
+					expand: true,
+					src: [ 'libs/**' ],
+					dest: 'dist/'
+				}]
+			}
+		},
+		uglify: {
+			build: {
+				files: {
+					'dist/app/app.min.js': [
+						'app/app.js', 'app/filters/*.js', 'app/services/*.js', 'app/controllers/*.js',
+						'dist/app/templates.js'
+					]
+				}
+			}
+		},
+		bower_concat: {
+			build: {
+				dest: 'dist/libs/libs.js',
+				mainFiles: {
+					'angular-gestures': '../../gestures.min.js'
+				}
+			}
+		},
+		ngtemplates: {
+			build: {
+				src: 'app/**/*.html',
+				dest: 'dist/app/templates.js',
+				options: {
+					module: 'yataApp',
+					htmlmin: {
+						collapseWhitespace: true,
+						collapseBooleanAttributes: true
+					}
+				}
+			}
+		}
 	});
 	
 	grunt.registerTask('test', [ 'jshint:all', 'karma:unit' ]);
-	grunt.registerTask('test:continuous', [ 'watch', 'karma:continuous' ]);
+	grunt.registerTask('test:continuous', [ 'karma:continuous' ]);
+	grunt.registerTask('build', [
+		'clean:build', 'ngtemplates:build', 'uglify:build', 'cssmin:build_app', 'htmlmin:build', 'copy:build'
+	]);
 };

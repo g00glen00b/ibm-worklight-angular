@@ -43,7 +43,7 @@ var yataObj = {
 	}]
 };
 
-angular.module('yataApp.services', []).service('TodoService', [ function () {
+angular.module('yataApp.services').service('TodoService', [ function () {
 	return {
 		getInbox: function() {
 			return yataObj.inbox;

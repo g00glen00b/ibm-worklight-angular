@@ -4,7 +4,7 @@
 /*global angular, document, console, moment */
 "use strict";
 
-angular.module('yataApp.controllers', [])
+angular.module('yataApp.controllers')
 
 .controller('BaseController', [ '$scope', '$ionicModal', 'TodoService', function($scope, $ionicModal, service) {
 	$scope.titles = {
@@ -75,6 +75,7 @@ angular.module('yataApp.controllers', [])
 	
 	$scope.saveTaskModal = function() {
 		if ($scope.focus.task !== null) {
+			// TODO Convert to service call
 			$scope.focus.task.title = $scope.taskModel.task.title;
 			if ($scope.taskModel.task.due === null) {
 				$scope.focus.task.due = null;
@@ -140,92 +141,4 @@ angular.module('yataApp.controllers', [])
 	$scope.$on('activeProject', function(evt, project) {
 		$scope.focus.project = project;
 	});
-}])
-
-.controller('InboxController', [ '$scope', 'TodoService', function ($scope, service) {
-		$scope.title = "Inbox";
-		$scope.tasks = service.getInbox();
-		
-		$scope.$emit('activeProject', null);
-}])
-
-.controller('ProjectController', [ '$scope', 'TodoService', '$routeParams', function($scope, service, $routeParams) {
-	$scope.project = service.getProject($routeParams.id);
-	$scope.title = $scope.project !== null ? $scope.project.title : null;
-	$scope.tasks = $scope.project !== null ? $scope.project.tasks : [];
-	
-	$scope.$emit('activeProject', $scope.project);
-}])
-
-.controller('SoonController', [ '$scope', 'TodoService', function($scope, service) {
-	$scope.title = "Soon";
-	$scope.range = $scope.ranges.soon;
-	
-	$scope.$emit('activeProject', null);
-}])
-
-.controller('TodayController', [ '$scope', 'TodoService', function($scope, service) {
-	$scope.title = "Today";
-	$scope.range = $scope.ranges.today;
-	
-	$scope.$emit('activeProject', null);
-}])
-
-.controller('PastController', [ '$scope', 'TodoService', function($scope, service) {
-	$scope.title = "Too late";
-	$scope.range = $scope.ranges.past;
-	
-	$scope.$emit('activeProject', null);
-}])
-
-.controller('SettingsController', [ '$scope', '$ionicModal', 'TodoService', function($scope, $ionicModal, service) {
-	$scope.title = "Settings";
-	$scope.projects = service.getProjects();
-	$scope.newProject = {
-		name: null
-	};
-	
-	$scope.model = {
-		project: null,
-		projectName: null
-	};
-	
-	$scope.projectBtns = [{
-		text: '',
-		type: 'button icon ion-edit',
-		onTap: function(project) {
-			$scope.model.project = project;
-			$scope.model.projectName = project.title;
-			$scope.modal.show();
-		}
-	}, {
-		text: '',
-		type: 'button icon ion-trash-a',
-		onTap: function(project) {
-			service.deleteProject(project);
-		}
-	}];
-	
-	$ionicModal.fromTemplateUrl('app/views/project.html', function(modal) {
-		$scope.modal = modal;
-	}, {
-		scope: $scope,
-		animation: 'slide-in-up'
-	});
-	
-	$scope.saveModal = function() {
-		$scope.model.project.title = $scope.model.projectName;
-		$scope.closeModal();
-	};
-
-	$scope.closeModal = function() {
-		$scope.modal.hide();
-		$scope.model.project = null;
-		$scope.model.projectName = null;
-	};
-	
-	$scope.addProject = function() {
-		service.addProject($scope.newProject.name);
-		$scope.newProject.name = null;
-	};
 }]);

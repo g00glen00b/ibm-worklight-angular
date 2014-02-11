@@ -17,6 +17,7 @@ module.exports = function (config) {
 			'libs/underscore/underscore.js',
 			'libs/ionic/dist/js/ionic.js',
 			'libs/ionic/dist/js/ionic-angular.js',
+			'libs/momentjs/moment.js',
             
 			'app/app.js',
 			'app/filters/*.js',
@@ -38,7 +39,7 @@ module.exports = function (config) {
         logLevel: config.LOG_INFO,
 
         port: 9876,
-        browsers: [ 'PhantomJS', 'Firefox' ],
-        reporters: 'dots'
+        browsers: [ 'PhantomJS' ],
+        reporters: [ 'progress' ]
     });
 };

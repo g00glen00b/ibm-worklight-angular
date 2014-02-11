@@ -5,7 +5,7 @@
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
 		<title>Yata - Yet Another Todo App</title>
 
-		<link href="../libs/ionic/dist/css/ionic.min.css" rel="stylesheet" />
+		<link href="libs/ionic/dist/css/ionic.min.css" rel="stylesheet" />
     	<link href="assets/css/style.css" rel="stylesheet" />
 	</head>
 
@@ -76,23 +76,32 @@
 		</side-menus>
     
     	<!-- Libraries -->
-		<script type="text/javascript" src="../libs/ionic/dist/js/ionic.min.js"></script>
-		<script type="text/javascript" src="../libs/angular/angular.min.js"></script>
-		<script type="text/javascript" src="../libs/angular-animate/angular-animate.min.js"></script>
-		<script type="text/javascript" src="../libs/angular-route/angular-route.min.js"></script>
-		<script type="text/javascript" src="../libs/angular-resource/angular-resource.min.js"></script>
-		<script type="text/javascript" src="../libs/angular-touch/angular-touch.min.js"></script>
-		<script type="text/javascript" src="../libs/angular-sanitize/angular-sanitize.min.js"></script>
-		<script type="text/javascript" src="../libs/angular-ui-router/release/angular-ui-router.min.js"></script>
-		<script type="text/javascript" src="../libs/angular-gestures/gestures.min.js"></script>
-		<script type="text/javascript" src="../libs/ionic/dist/js/ionic-angular.min.js"></script>
-		<script type="text/javascript" src="../libs/underscore/underscore-min.js"></script>
-		<script type="text/javascript" src="../libs/momentjs/min/moment.min.js"></script>
+		<script type="text/javascript" src="libs/ionic/dist/js/ionic.min.js"></script>
+		<script type="text/javascript" src="libs/angular/angular.min.js"></script>
+		<script type="text/javascript" src="libs/angular-animate/angular-animate.min.js"></script>
+		<script type="text/javascript" src="libs/angular-route/angular-route.min.js"></script>
+		<script type="text/javascript" src="libs/angular-resource/angular-resource.min.js"></script>
+		<script type="text/javascript" src="libs/angular-touch/angular-touch.min.js"></script>
+		<script type="text/javascript" src="libs/angular-sanitize/angular-sanitize.min.js"></script>
+		<script type="text/javascript" src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+		<script type="text/javascript" src="libs/angular-gestures/gestures.min.js"></script>
+		<script type="text/javascript" src="libs/ionic/dist/js/ionic-angular.min.js"></script>
+		<script type="text/javascript" src="libs/underscore/underscore-min.js"></script>
+		<script type="text/javascript" src="libs/momentjs/min/moment.min.js"></script>
 		
 		<!-- Application -->
 		<script type="text/javascript" src="app/app.js"></script>
-		<script type="text/javascript" src="app/services/services.js"></script>
-		<script type="text/javascript" src="app/controllers/controllers.js"></script>
-		<script type="text/javascript" src="app/filters/filters.js"></script>
+		<script type="text/javascript" src="app/filters/OpenTaskCountFilter.js"></script>
+		<script type="text/javascript" src="app/filters/RangeFilter.js"></script>
+		<script type="text/javascript" src="app/filters/TaskCountFilter.js"></script>
+		<script type="text/javascript" src="app/filters/TaskCountRangeFilter.js"></script>
+		<script type="text/javascript" src="app/services/TodoService.js"></script>
+		<script type="text/javascript" src="app/controllers/BaseController.js"></script>
+		<script type="text/javascript" src="app/controllers/InboxController.js"></script>
+		<script type="text/javascript" src="app/controllers/PastController.js"></script>
+		<script type="text/javascript" src="app/controllers/ProjectController.js"></script>
+		<script type="text/javascript" src="app/controllers/SettingsController.js"></script>
+		<script type="text/javascript" src="app/controllers/SoonController.js"></script>
+		<script type="text/javascript" src="app/controllers/TodayController.js"></script>
   </body>
 </html>
