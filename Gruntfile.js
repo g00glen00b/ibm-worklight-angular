@@ -100,7 +100,7 @@ module.exports = function (grunt) {
 				src: 'app/**/*.html',
 				dest: 'dist/app/templates.js',
 				options: {
-					module: 'yataApp',
+					module: 'yata',
 					htmlmin: {
 						collapseWhitespace: true,
 						collapseBooleanAttributes: true

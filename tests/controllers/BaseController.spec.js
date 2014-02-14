@@ -41,7 +41,7 @@ describe("BaseController", function() {
 		}
 	};
 	beforeEach(function () {
-		angular.mock.module('yataApp.controllers');
+		angular.mock.module('yata.controllers');
 		angular.mock.inject(function($rootScope, $controller) {
 			scope = $rootScope.$new();
 			spyOn(serviceMock, 'getInbox').andCallThrough();

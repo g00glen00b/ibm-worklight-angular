@@ -4,9 +4,9 @@
 /*global angular, document, console */
 "use strict";
 
-angular.module('yataApp', [
+angular.module('yata', [
 	'ngRoute', 'ionic', 'angular-gestures',
-	'yataApp.controllers', 'yataApp.services', 'yataApp.filters'
+	'yata.controllers', 'yata.services', 'yata.filters'
 
 ]).config(['$routeProvider', function ($route) {
 	
@@ -39,6 +39,6 @@ angular.module('yataApp', [
 	});
 }]);
 
-angular.module('yataApp.controllers', []);
-angular.module('yataApp.services', []);
-angular.module('yataApp.filters', []);
+angular.module('yata.controllers', []);
+angular.module('yata.services', []);
+angular.module('yata.filters', []);

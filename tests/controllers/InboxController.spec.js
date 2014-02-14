@@ -16,7 +16,7 @@ describe("InboxController", function() {
 	};
 	
 	beforeEach(function () {
-		angular.mock.module('yataApp.controllers');
+		angular.mock.module('yata.controllers');
 		angular.mock.inject(function($rootScope, $controller) {
 			scope = $rootScope.$new();
 			scope.$emit = jasmine.createSpy("$emit");

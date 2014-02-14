@@ -4,7 +4,7 @@
 /*global angular, document, console, _ */
 "use strict";
 
-angular.module('yataApp.filters').filter('TaskCountFilter', ['TodoService', function(service) {
+angular.module('yata.filters').filter('TaskCountFilter', ['TodoService', function(service) {
 	return function(tasks) {
 		return service.getOpenTasks(tasks).length;
 	};

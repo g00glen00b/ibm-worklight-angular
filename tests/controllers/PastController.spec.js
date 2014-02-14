@@ -8,7 +8,7 @@ describe("PastController", function() {
 	var scope = null, serviceMock = { };
 	
 	beforeEach(function () {
-		angular.mock.module('yataApp.controllers');
+		angular.mock.module('yata.controllers');
 		angular.mock.inject(function($rootScope, $controller) {
 			scope = $rootScope.$new();
 			scope.ranges = {

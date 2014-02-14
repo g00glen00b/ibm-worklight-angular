@@ -4,7 +4,7 @@
 /*global angular, document, console, _ */
 "use strict";
 
-angular.module('yataApp.filters').filter('TaskCountRangeFilter', ['TodoService', function(service) {
+angular.module('yata.filters').filter('TaskCountRangeFilter', ['TodoService', function(service) {
 	return function(tasks, range) {
 		var nr = _.filter(tasks.inbox, function(task) {
 			return service.isTaskInRange(task, range.begin, range.end) && !task.completed;

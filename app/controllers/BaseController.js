@@ -4,7 +4,7 @@
 /*global angular, document, console, moment */
 "use strict";
 
-angular.module('yataApp.controllers')
+angular.module('yata.controllers')
 
 .controller('BaseController', [ '$scope', '$ionicModal', 'TodoService', function($scope, $ionicModal, service) {
 	$scope.titles = {
