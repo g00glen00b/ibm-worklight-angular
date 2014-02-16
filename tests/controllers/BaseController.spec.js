@@ -218,10 +218,12 @@ describe("BaseController", function() {
 		scope.taskModel.task.due = null;
 		scope.taskModel.task.project = project;
 		serviceMock.moveTask = jasmine.createSpy("moveTask");
+		serviceMock.updateTask = jasmine.createSpy("updateTask");
 		scope.saveTaskModal();
 		expect(scope.focus.task.title).toBe("Edited task");
 		expect(scope.focus.task.due).toBe(null);
 		expect(serviceMock.moveTask).toHaveBeenCalledWith(task, project);
+		expect(serviceMock.updateTask).toHaveBeenCalledWith(task);
 		expect(scope.taskModel.labels.title).toBe(null);
 		expect(scope.taskModel.labels.btn).toBe(null);
 		expect(scope.taskModel.task.title).toBe(null);

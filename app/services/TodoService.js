@@ -172,6 +172,14 @@ angular.module('yata.services').service('TodoService', [ function () {
 		
 		getProjects: function() {
 			return yataObj.projects;
+		},
+		
+		updateProject: function(/** Project */ project) {
+			
+		},
+		
+		updateTask: function(/** Task */ task) {
+			
 		}
 	};
 }]);

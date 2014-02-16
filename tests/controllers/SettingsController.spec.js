@@ -92,10 +92,12 @@ describe("SettingsController", function() {
 		var project = {
 			title: "Test 1"
 		};
+		serviceMock.updateProject = jasmine.createSpy("updateProject");
 		scope.model.project = project;
 		scope.model.projectName = "Test 2";
 		scope.saveModal();
 		expect(project.title).toBe("Test 2");
+		expect(serviceMock.updateProject).toHaveBeenCalledWith(project);
 		expect(scope.model.project).toBe(null);
 		expect(scope.model.projectName).toBe(null);
 		expect(modal.hide).toHaveBeenCalled();

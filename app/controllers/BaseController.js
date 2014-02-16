@@ -75,13 +75,13 @@ angular.module('yata.controllers')
 	
 	$scope.saveTaskModal = function() {
 		if ($scope.focus.task !== null) {
-			// TODO Convert to service call
 			$scope.focus.task.title = $scope.taskModel.task.title;
 			if ($scope.taskModel.task.due === null) {
 				$scope.focus.task.due = null;
 			} else {
 				$scope.focus.task.due = moment($scope.taskModel.task.due).toDate();
 			}
+			service.updateTask($scope.focus.task);
 			service.moveTask($scope.focus.task, $scope.taskModel.task.project);
 		} else {
 			var newTask = {

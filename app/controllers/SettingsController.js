@@ -42,8 +42,8 @@ angular.module('yata.controllers')
 	});
 	
 	$scope.saveModal = function() {
-		// TODO Convert to service call
 		$scope.model.project.title = $scope.model.projectName;
+		service.updateProject($scope.model.project);
 		$scope.closeModal();
 	};
 
