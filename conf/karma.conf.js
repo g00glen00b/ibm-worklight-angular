@@ -20,8 +20,8 @@ module.exports = function (config) {
 			'libs/momentjs/moment.js',
             
 			'app/app.js',
-			'app/filters/*.js',
 			'app/services/*.js',
+			'app/filters/*.js',
 			'app/controllers/*.js',
 
 			'tests/**/*.spec.js'
