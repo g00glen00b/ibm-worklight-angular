@@ -53,7 +53,8 @@ describe("SettingsController", function() {
 	});
 	
 	it('initializes modal', function() {
-		expect(modalMock.fromTemplateUrl).toHaveBeenCalledWith('app/views/project.html', jasmine.any(Function), jasmine.any(Object));
+		expect(modalMock.fromTemplateUrl).toHaveBeenCalledWith('app/views/project.html', jasmine.any(Function),
+			jasmine.any(Object));
 		expect(scope.modal.test).toBe("test");
 	});
 	

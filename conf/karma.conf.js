@@ -10,7 +10,6 @@ module.exports = function (config) {
         frameworks: [ 'jasmine' ],
 
         files: [
-			'libs/jQuery/dist/jquery.js',
 			'libs/angular/angular.js',
 			'libs/angular-mocks/angular-mocks.js',
 			'libs/angular-resource/angular-resource.js',

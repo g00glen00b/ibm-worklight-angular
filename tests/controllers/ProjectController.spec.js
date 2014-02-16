@@ -29,7 +29,7 @@ describe("BaseController", function() {
 				$scope: scope,
 				TodoService: serviceMock,
 				$routeParams: {
-					id: 1	
+					id: 1
 				}
 			});
 		});
